@@ -95,11 +95,7 @@ a{display: block;}
     text-decoration: none;}
 
 .list-nav,
-.head-link {color: var(--main-color);
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.14;
-    text-decoration: none;}
+.head-link ,
 .auth-nav,
 .contacts {display: flex;
      font-weight: 500;
@@ -112,12 +108,53 @@ a{display: block;}
 .list-nav,
 .head-link { --main-color: #212121 }
 
-.item { margin-right: 50px; }
+.item { margin-right: 50px; 
+position: relative;}
 
 .item:last-child {
     margin: 0px;}
 
 .tel-link {  margin-left: 50px;}
+.current::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    left: 0;
+   
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+}
+
+.head-link::before {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    left: 0;
+   
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+      
+    transition-property: background-color;
+    transition: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0);
+}
+
+
+.head-link:hover::before,
+.head-link:focus::before {
+    transform: scale(1);
+}
+
+
+
+
 
 .head-link:focus,
 .head-link:hover,
